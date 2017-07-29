@@ -3,6 +3,6 @@
     <color name="colorPrimary">#FF7900</color>
     <color name="colorPrimaryDark">#FF780C</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="selectedTab">#D1D1D1</color>
-    <color name="deSelectedTab">#EFEFEF</color>
+    <color name="selectedTab">#B1B1B1</color>
+    <color name="deSelectedTab">#D1D1D1</color>
 </resources>
