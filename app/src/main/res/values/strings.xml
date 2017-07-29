@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyWork</string>
+    <string name="LOGON">LOGIN</string>
+    <string name="SIGNUP">SIGN UP</string>
 </resources>
