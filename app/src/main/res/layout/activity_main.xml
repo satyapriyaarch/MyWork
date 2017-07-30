@@ -51,7 +51,7 @@
         android:id="@+id/logintext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/LOGON"
+        android:text="@string/LOGIN"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -98,19 +98,21 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/emailText"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/border"
         android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName"
+        android:hint="@string/Email"
+        android:inputType="textEmailAddress"
         android:selectAllOnFocus="false"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/guideline"
         app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:textCursorDrawable="@drawable/cursor"
+        android:paddingLeft="8dp"/>
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -131,28 +133,47 @@
         tools:layout_editor_absoluteX="360dp" />
 
     <EditText
-        android:id="@+id/editPassword"
-        android:layout_width="match_parent"
+    android:id="@+id/passwordText"
+    android:layout_width="0dp"
+    android:layout_height="50dp"
+        android:layout_marginRight="0dp"
+    android:layout_marginTop="24dp"
+    android:background="@drawable/border"
+    android:ems="10"
+    android:hint="@string/Password"
+    android:inputType="textPassword"
+    android:selectAllOnFocus="true"
+    app:layout_constraintLeft_toLeftOf="@+id/guideline"
+    app:layout_constraintRight_toLeftOf="@+id/guideline2"
+    app:layout_constraintTop_toBottomOf="@+id/emailText"
+    app:layout_constraintHorizontal_bias="0.0"
+        android:textCursorDrawable="@drawable/cursor"
+        android:paddingLeft="8dp"/>
+
+    <EditText
+        android:id="@+id/confPasswordText"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="-1dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/border"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/confirmPassword"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
         app:layout_constraintLeft_toLeftOf="@+id/guideline"
         app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordText"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:textCursorDrawable="@drawable/cursor"
+        android:paddingLeft="8dp"/>
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Login"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword"
+        android:text="@string/Login"
+        app:layout_constraintTop_toBottomOf="@+id/passwordText"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -161,7 +182,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/SIGNUP"
+        android:text="@string/SignUp"
         app:layout_constraintTop_toBottomOf="@+id/loginButton"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />

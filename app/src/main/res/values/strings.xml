@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">MyWork</string>
-    <string name="LOGON">LOGIN</string>
+    <string name="LOGIN">LOGIN</string>
     <string name="SIGNUP">SIGN UP</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="Password">Password</string>
+    <string name="Email">Email</string>
+    <string name="Login">Login</string>
+    <string name="SignUp">Sign Up</string>
+    <string name="title_activity_mywork">MyworkActivity</string>
 </resources>
