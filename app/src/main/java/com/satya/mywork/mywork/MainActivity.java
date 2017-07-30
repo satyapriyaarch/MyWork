@@ -82,59 +82,117 @@ public class MainActivity extends AppCompatActivity {
 
 
         signupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                @Override
+                public void onClick(View v) {
 
-                String email = emailText.getText().toString().trim();
-                String password = passwordText.getText().toString().trim();
-                String confirmpass = confPassText.getText().toString().trim();
+                    String email = emailText.getText().toString().trim();
+                    String password = passwordText.getText().toString().trim();
+                    String confirmpass = confPassText.getText().toString().trim();
 
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                    if (TextUtils.isEmpty(email)) {
+                        Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-                if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (TextUtils.isEmpty(confirmpass)) {
-                    Toast.makeText(getApplicationContext(), "Enter confirm password!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (!TextUtils.equals(password.toString(), confirmpass.toString()))
-                {
-                    Toast.makeText(getApplicationContext(), "Password and Confirm password does not match!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (password.length() < 3) {
-                    Toast.makeText(getApplicationContext(), "Password too short, enter minimum 3 characters!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                    if (TextUtils.isEmpty(password)) {
+                        Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (TextUtils.isEmpty(confirmpass)) {
+                        Toast.makeText(getApplicationContext(), "Enter confirm password!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (!TextUtils.equals(password.toString(), confirmpass.toString()))
+                    {
+                        Toast.makeText(getApplicationContext(), "Password and Confirm password does not match!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (password.length() < 3) {
+                        Toast.makeText(getApplicationContext(), "Password too short, enter minimum 3 characters!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
 
-                //create user
-                auth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(MainActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                    //create user
+                    auth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    Toast.makeText(MainActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
 
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                if (!task.isSuccessful()) {
+                                    // If sign in fails, display a message to the user. If sign in succeeds
+                                    // the auth state listener will be notified and logic to handle the
+                                    // signed in user can be handled in the listener.
+                                    if (!task.isSuccessful()) {
 
-                                    Toast.makeText(MainActivity.this, "Authentication failed." + task.getException(),
-                                            Toast.LENGTH_SHORT).show();
-                                } else {
-                                    // startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                        Toast.makeText(MainActivity.this, "Authentication failed." + task.getException(),
+                                                Toast.LENGTH_SHORT).show();
+                                    } else {
+
+                                        Intent intent = new Intent(MainActivity.this,MyworkActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
                                 }
-
-                            }
-                        });
-            }
+                            });
+                }
         });
+
+        loginButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v)
+                    {
+
+                        String email = emailText.getText().toString().trim();
+                        String password = passwordText.getText().toString().trim();
+                        String confirmpass = confPassText.getText().toString().trim();
+                        if (TextUtils.isEmpty(email)) {
+                            Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        if (TextUtils.isEmpty(password)) {
+                            Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        if (password.length() < 6) {
+                            Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        //authenticate user
+                        auth.signInWithEmailAndPassword(email, password)
+                                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        // If sign in fails, display a message to the user. If sign in succeeds
+                                        // the auth state listener will be notified and logic to handle the
+                                        // signed in user can be handled in the listener.
+                                        //progressBar.setVisibility(View.GONE);
+                                        if (!task.isSuccessful()) {
+                                            // there was an error
+                                            Toast.makeText(MainActivity.this, "Authentication failed." + task.getException(),
+                                                    Toast.LENGTH_SHORT).show();
+
+                                        } else {
+                                            Intent intent = new Intent(MainActivity.this, MyworkActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    }
+                                });
+
+
+
+
+
+                    }
+                }
+
+
+        );
 
     }
 
