@@ -179,7 +179,6 @@ public class MainActivity extends AppCompatActivity {
                                         } else {
                                             Intent intent = new Intent(MainActivity.this, MyworkActivity.class);
                                             startActivity(intent);
-                                            finish();
                                         }
                                     }
                                 });
