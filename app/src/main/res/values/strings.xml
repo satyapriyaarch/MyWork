@@ -8,4 +8,12 @@
     <string name="Login">Login</string>
     <string name="SignUp">Sign Up</string>
     <string name="title_activity_mywork">MyworkActivity</string>
+
+    <string-array name="Worked">
+        <item>Worked - Full Day</item>
+        <item>Worked - HalfDay (Session 1)</item>
+        <item>Worked - HalfDay (Session 2)</item>
+        <item>Not Worked - On Leave</item>
+        <item>Not Worked - Holiday</item>
+    </string-array>
 </resources>

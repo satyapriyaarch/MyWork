@@ -112,7 +112,8 @@
         app:layout_constraintRight_toLeftOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         android:textCursorDrawable="@drawable/cursor"
-        android:paddingLeft="8dp"/>
+        android:paddingLeft="8dp"
+        android:text="satya@gmail.com"/>
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -148,7 +149,7 @@
     app:layout_constraintTop_toBottomOf="@+id/emailText"
     app:layout_constraintHorizontal_bias="0.0"
         android:textCursorDrawable="@drawable/cursor"
-        android:paddingLeft="8dp"/>
+        android:paddingLeft="8dp" android:text="123456"/>
 
     <EditText
         android:id="@+id/confPasswordText"
