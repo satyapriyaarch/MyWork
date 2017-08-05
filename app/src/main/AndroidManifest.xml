@@ -19,7 +19,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".MyworkActivity"></activity>
+        <activity android:name=".MyworkActivity" />
+        <activity android:name=".AddWorkActivity"
+            android:theme="@style/AppTheme.CustomTheme"
+            >
+
+        </activity>
     </application>
 
 </manifest>

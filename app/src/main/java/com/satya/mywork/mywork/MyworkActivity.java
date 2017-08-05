@@ -1,5 +1,6 @@
 package com.satya.mywork.mywork;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,6 +37,7 @@ public class MyworkActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.v("Satya","ButtonTouched");
 
+                startActivity(new Intent(MyworkActivity.this,AddWorkActivity.class));
 
 
 
